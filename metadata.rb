@@ -8,7 +8,7 @@ version           "0.3.3"
 recipe            "redis", "Does nothing."
 recipe            "redis::server", "Installs redis server."
 
-depends "apt"
+depends "chef-apt-repo"
 
 %w{ centos fedora redhat ubuntu }.each do |os|
   supports os

@@ -23,14 +23,12 @@ case node['platform']
 when "ubuntu"
     package_name = "redis-server"
     config_path = "/etc/redis/"
-    apt_repository "brianmercer-redis" do
-        uri "ppa:brianmercer/redis"
-    end
 end
 
 package package_name do
     action :install
 end
+
 
 service package_name do
   supports :status => true, :restart => true, :reload => false
