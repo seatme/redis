@@ -18,9 +18,11 @@
 #
 
 package_name = "redis"
+config_path = "/etc/"
 case node['platform']
 when "ubuntu"
     package_name = "redis-server"
+    config_path = "/etc/redis/"
 end
 
 package package_name do
@@ -32,7 +34,7 @@ service package_name do
   action :enable
 end
 
-template "/etc/redis.conf" do
+template "#{config_path}/redis.conf" do
   source "redis.conf.erb"
   owner  "root"
   group  "root"
