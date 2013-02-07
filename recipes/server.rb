@@ -23,6 +23,8 @@ case node['platform']
 when "ubuntu"
     package_name = "redis-server"
     config_path = "/etc/redis/"
+    execute "apt-add-repository -y ppa:brianmercer/redis"
+    execute "apt-get update"
 end
 
 package package_name do
